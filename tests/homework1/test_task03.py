@@ -1,4 +1,4 @@
-from homework1.min_max_values import min_max_values
+from homework1.task03 import min_max_values
 
 
 def test_min_max_values_normal():

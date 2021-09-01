@@ -1,5 +1,4 @@
 from typing import Sequence
-from homework1.is_num_in_fibonacci import is_num_in_fibonacci
 
 
 def check_fibonacci(seq: Sequence[int]):
