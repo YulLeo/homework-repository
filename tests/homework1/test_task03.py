@@ -1,7 +1,7 @@
 from homework1.task03 import min_max_values
 
 
-def test_min_max_values_normal():
+def test_min_max_values_positive():
     assert min_max_values([5, 3, 1, 7, 8]) == (1, 8)
 
 
