@@ -1,6 +1,8 @@
 from typing import List
+from typing import Tuple
 import itertools
 
 
-def check_sum_of_four(a: List[int], b: List[int], c: List[int], d: List[int]) -> int:
-    return sum(sum(i) == 0 for i in itertools.product(a, b, c, d))
+def check_sum_of_any(*args: Tuple[List[int]]) -> int:
+    """Takes integer from each list, computes sums, and returns how many sums are equal to zero"""
+    return sum(sum(i) == 0 for i in itertools.product(*args))

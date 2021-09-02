@@ -1,7 +1,8 @@
 from typing import Sequence
 
 
-def check_fibonacci(seq: Sequence[int]):
+def check_fibonacci(seq: Sequence[int]) -> bool:
+    """Returns if the given sequence is a Fibonacci sequence"""
     if len(seq) == 0:
         return False
     if len(seq) == 1:
@@ -18,5 +19,11 @@ def check_fibonacci(seq: Sequence[int]):
         return False
 
 
-def is_num_in_fibonacci(num: int):
+def is_num_in_fibonacci(num: int) -> bool:
+    """
+    Returns if the given integer belongs to Fibonacci sequence.
+
+    The formula has been taken from the nice Wikipedia page:
+    https://ru.wikipedia.org/wiki/Числа_Фибоначчи#Свойства
+    """
     return ((5*(num**2) + 4)**0.5).is_integer() or ((5*(num**2) - 4)**0.5).is_integer()
