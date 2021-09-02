@@ -1,4 +1,4 @@
-from typing import Tuple, Sequence
+from typing import Sequence, Tuple
 
 
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:

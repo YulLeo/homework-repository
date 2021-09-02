@@ -1,6 +1,6 @@
+import itertools
 from typing import List
 from typing import Tuple
-import itertools
 
 
 def check_sum_of_any(*args: Tuple[List[int]]) -> int:
