@@ -1,8 +1,7 @@
-from homework2.task01_utils import get_words_with_unique_symbols
-from homework2.task01_utils import find_rare_char
-from homework2.task01_utils import punctuation_counter
-from homework2.task01_utils import non_ascii_chars
-from homework2.task01_utils import count_common_non_ascii_char
+from homework2.task01_utils import (count_common_non_ascii_char,
+                                    find_rare_char,
+                                    get_words_with_unique_symbols,
+                                    non_ascii_chars, punctuation_counter)
 
 
 def test_count_common_non_ascii_char_right():
