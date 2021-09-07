@@ -83,13 +83,13 @@ def test_get_words_with_unique_symbols_right():
         }
     ) == [
         'zxcvbnmasdf',
-         'sdfghjklllliu',
-         'qqqqwwasdfghj',
-         'bcdefgyt',
-         'abcdefy',
-         'ssssssssabcdu',
-         'abcd',
-         'abc',
-         'fd',
-         's'
+        'sdfghjklllliu',
+        'qqqqwwasdfghj',
+        'bcdefgyt',
+        'abcdefy',
+        'ssssssssabcdu',
+        'abcd',
+        'abc',
+        'fd',
+        's'
     ]
