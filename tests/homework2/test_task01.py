@@ -70,27 +70,26 @@ def test_get_words_with_unique_symbols_wrong():
 def test_get_words_with_unique_symbols_right():
     assert get_words_with_unique_symbols(
         {
-            'abenteuerliche',
-            'zeitmauer',
-            'ssssssssddddfdfdfd',
-            'hertz',
-            'schutzumschlag',
-            'opus',
-            'defghybcr',
+            'abc',
+            'abcd',
+            'ssssssssabcdu',
+            'abcdefy',
+            'bcdefgyt',
+            'sdfghjklllliu',
             'fd',
-            'spiegelbild',
-            'achtzehnten',
-            'starken'
+            'zxcvbnmasdf',
+            'qqqqwwasdfghj',
+            's'
         }
     ) == [
-        'abenteuerliche',
-        'schutzumschlag',
-        'defghybcr',
-        'zeitmauer',
-        'spiegelbild',
-        'achtzehnten',
-        'starken',
-        'hertz',
-        'opus',
-        'ssssssssddddfdfdfd'
-          ]
+        'zxcvbnmasdf',
+         'sdfghjklllliu',
+         'qqqqwwasdfghj',
+         'bcdefgyt',
+         'abcdefy',
+         'ssssssssabcdu',
+         'abcd',
+         'abc',
+         'fd',
+         's'
+    ]
