@@ -6,11 +6,13 @@ from homework2.task01_utils import count_common_non_ascii_char
 
 
 def test_count_common_non_ascii_char_right():
-    assert count_common_non_ascii_char(('ä', 'ä', 'ö', 'ä', 'ö', 'a', 'g', 'h')) == 'ä'
+    assert count_common_non_ascii_char((
+        'ä', 'ä', 'ö', 'ä', 'ö', 'a', 'g', 'h')) == 'ä'
 
 
 def test_count_common_non_ascii_char_wrong():
-    assert count_common_non_ascii_char(('ä', 'ä', 'ö', 'ä', 'ö', 'a', 'g', 'h')) != 'ö'
+    assert count_common_non_ascii_char((
+        'ä', 'ä', 'ö', 'ä', 'ö', 'a', 'g', 'h')) != 'ö'
 
 
 def test_non_ascii_chars_right():
@@ -19,6 +21,7 @@ def test_non_ascii_chars_right():
 
 def test_non_ascii_chars_wrong():
     assert non_ascii_chars(('ä', 'ä', 'ä', 'ä', 'ä', 'a', 'g', 'h')) != 6
+
 
 def test_punctuation_counter_right():
     assert punctuation_counter(('y', 'b', 'k', ',', ':')) == 2
@@ -38,7 +41,7 @@ def test_find_rare_char_wrong():
 
 def test_get_words_with_unique_symbols_wrong():
     assert get_words_with_unique_symbols(
-        (
+        {
             'abenteuerliche',
             'zeitmauer',
             'ssssssssddddfdfdfd',
@@ -50,24 +53,24 @@ def test_get_words_with_unique_symbols_wrong():
             'spiegelbild',
             'achtzehnten',
             'starken'
-        )
+        }
     ) != [
         'spiegelbild',
         'defghybcr',
         'abenteuerliche',
         'schutzumschlag',
-         'zeitmauer',
-         'achtzehnten',
-         'starken',
-         'hertz',
-         'opus',
-         'ssssssssddddfdfdfd'
+        'zeitmauer',
+        'achtzehnten',
+        'starken',
+        'hertz',
+        'opus',
+        'ssssssssddddfdfdfd'
           ]
 
 
 def test_get_words_with_unique_symbols_right():
     assert get_words_with_unique_symbols(
-        (
+        {
             'abenteuerliche',
             'zeitmauer',
             'ssssssssddddfdfdfd',
@@ -79,16 +82,16 @@ def test_get_words_with_unique_symbols_right():
             'spiegelbild',
             'achtzehnten',
             'starken'
-        )
+        }
     ) == [
         'abenteuerliche',
         'schutzumschlag',
-         'defghybcr',
-         'zeitmauer',
-         'spiegelbild',
-         'achtzehnten',
-         'starken',
-         'hertz',
-         'opus',
-         'ssssssssddddfdfdfd'
+        'defghybcr',
+        'zeitmauer',
+        'spiegelbild',
+        'achtzehnten',
+        'starken',
+        'hertz',
+        'opus',
+        'ssssssssddddfdfdfd'
           ]
