@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import Sequence, Tuple
 
 
 def check_fibonacci(seq: Sequence[int]) -> bool:
@@ -35,5 +35,8 @@ def is_num_in_fibonacci(num: int) -> bool:
         or ((5 * (num ** 2) - 4) ** 0.5).is_integer()
 
 
-def is_nums_in_fibonacci(*nums: int) -> bool:
+def is_nums_in_fibonacci(*nums: Tuple[int]) -> bool:
+    """
+    Returns if the given integers belong to Fibonacci sequence.
+    """
     return all(is_num_in_fibonacci(num) for num in nums)
