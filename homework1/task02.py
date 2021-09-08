@@ -5,14 +5,16 @@ def check_fibonacci(seq: Sequence[int]) -> bool:
     """Returns if the given sequence is a Fibonacci sequence"""
     if len(seq) == 0:
         return False
+
+    if not is_nums_in_fibonacci(*seq):
+        return False
+
     if len(seq) == 1:
-        return is_num_in_fibonacci(seq[0])
-    if len(seq) == 2:
-        if (
-            (seq[0] >= seq[1] != 0)
-            and (is_num_in_fibonacci(seq[0]) and is_num_in_fibonacci(seq[1]))
-        ):
-            return is_num_in_fibonacci(seq[0] + seq[1])
+        return True
+
+    if len(seq) == 2 and (seq[0] <= seq[1] != 0):
+        return is_num_in_fibonacci(seq[0] + seq[1])
+
     if len(seq) > 2 and seq[1] != 0:
         mid_check = []
         for i in range(2, len(seq)):
@@ -31,3 +33,7 @@ def is_num_in_fibonacci(num: int) -> bool:
     """
     return ((5 * (num ** 2) + 4) ** 0.5).is_integer() \
         or ((5 * (num ** 2) - 4) ** 0.5).is_integer()
+
+
+def is_nums_in_fibonacci(*nums: int) -> bool:
+    return all(is_num_in_fibonacci(num) for num in nums)
