@@ -1,8 +1,8 @@
-from homework3.task01 import decorator_factory
+from homework3.task01 import decorator_cache
 
 
 def test_cache_positive():
-    @decorator_factory(times=2)
+    @decorator_cache(times=2)
     def func(a, b):
         return (a ** b) ** 2
 

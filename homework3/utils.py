@@ -1,7 +1,7 @@
-import time
-import struct
-import random
 import hashlib
+import random
+import struct
+import time
 
 
 def slow_calculate(value):
@@ -12,8 +12,9 @@ def slow_calculate(value):
 
 
 def meter(f):
+    """Returns how many seconds took function execution"""
     def wrapper(*a, **kwargs):
         t1 = time.time()
-        res = f(*a, **kwargs)
+        f(*a, **kwargs)
         return time.time() - t1
     return wrapper

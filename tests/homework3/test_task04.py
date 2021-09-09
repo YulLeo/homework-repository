@@ -7,4 +7,3 @@ def test_is_armstrong_true():
 
 def test_is_armstrong_false():
     assert is_armstrong(10) is False
-
