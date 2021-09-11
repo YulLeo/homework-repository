@@ -2,13 +2,24 @@ from typing import Any, List, Sequence
 
 
 def custom_range(
-        seq: Sequence[Any], finish=None, start=None, step=1
+        seq: Sequence[Any],
+        stop: Any,
+        start: Any = None,
+        step: int = 1
 ) -> List:
     """
-    Accepts any iterable of unique values and then it behaves as range function
+    Accepts any iterable and then it behaves as range function
     """
+
     seq = list(seq)
     if start is None:
-        return seq[:seq.index(finish):step]
-    if start is not None:
-        return seq[seq.index(finish):seq.index(start):step]
+        custom_seq = seq[:seq.index(stop):step]
+        return custom_seq
+
+    if start is not None and seq.index(stop) > seq.index(start) and step > 0:
+        custom_seq = seq[seq.index(start):seq.index(stop):step]
+
+    else:
+        custom_seq = seq[seq.index(stop):seq.index(start):step]
+
+    return custom_seq
