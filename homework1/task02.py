@@ -6,7 +6,7 @@ def check_fibonacci(seq: Sequence[int]) -> bool:
     if len(seq) == 0:
         return False
 
-    if not is_nums_in_fibonacci(*seq):
+    if not is_nums_in_fibonacci(*seq[0:1]):
         return False
 
     if len(seq) == 1:

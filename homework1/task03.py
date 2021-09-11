@@ -4,7 +4,7 @@ from typing import Sequence, Tuple
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
     """Reads input line-by-line, and find maximum and minimum values."""
     with open(file_name) as file:
-        sequence = [int(line) for line in file]
+        sequence = (int(line) for line in file)
         return min_max_values(sequence)
 
 
