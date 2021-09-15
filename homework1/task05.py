@@ -13,9 +13,10 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     Returns:
         int: maximum sum of sub-array length less or equal k
     """
-    max_sum = sum(nums[0:k])
-    for i in range(len(nums)):
-        if sum(nums[i:k]) > max_sum:
-            max_sum = sum(nums[i:k])
-        k += 1
+    sub_array_length = k
+    max_sum = sum(nums[0:sub_array_length])
+    for num in range(len(nums)):
+        if sum(nums[num:sub_array_length]) > max_sum:
+            max_sum = sum(nums[num:sub_array_length])
+        sub_array_length += 1
     return max_sum

@@ -10,6 +10,4 @@ def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
 
 def min_max_values(sequence: Sequence[int]) -> Tuple[int, int]:
     """return a tuple with the max and min values in the sequence"""
-    min_value = min(sequence)
-    max_value = max(sequence)
-    return min_value, max_value
+    return min(sequence), max(sequence)
