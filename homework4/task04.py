@@ -20,31 +20,26 @@ from typing import List
 
 def fizzbuzz(n: int) -> List[str]:
     """
-    Takes a number N as an input and returns N FizzBuzz numbers.
+    Takes a number N as an input and returns list with N FizzBuzz numbers.
+
+    >>> fizzbuzz(15)[14]
+    'fizzbuzz'
 
     >>> fizzbuzz(5)
     ['1', '2', 'fizz', '4', 'buzz']
 
-    >>> fizzbuzz(15)
-    [
-    '1', '2', 'fizz', '4', 'buzz',
-    'fizz', '7', '8', 'fizz', 'buzz',
-    '11', 'fizz', '13', '14', 'fizzbuzz'
-    ]
     """
     fizzbuzz_list = []
-    for i in range(1, n+1):
-        if i % 3 == 0 and i % 5 == 0:
-            fizzbuzz_list.append('fizzbuzz')
-            continue
-        if i % 3 == 0:
-            fizzbuzz_list.append('fizz')
-            continue
-        if i % 5 == 0:
-            fizzbuzz_list.append('buzz')
-            continue
-        else:
-            fizzbuzz_list.append(str(i))
+
+    for num in range(1, n+1):
+        s = ''
+        if num % 3 == 0:
+            s += 'fizz'
+        if num % 5 == 0:
+            s += 'buzz'
+        elif num % 5 != 0 and num % 3 != 0:
+            s += str(num)
+        fizzbuzz_list.append(s)
     return fizzbuzz_list
 
 
