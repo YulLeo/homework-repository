@@ -47,8 +47,11 @@ def expand_string_punctuation(file: TextIO) -> str:
     symbols from file
     """
     char_seq = get_char_sequence(file)
-    return string.punctuation + "".join(
-        {i for i in char_seq if is_punct(i) and i not in string.punctuation}
+    return string.punctuation + ''.join(
+        {
+            char for char in char_seq if (
+                is_punct(char) and char not in string.punctuation)
+        }
     )
 
 

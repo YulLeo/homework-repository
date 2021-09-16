@@ -8,4 +8,4 @@ def combinations(*args: List[Any]) -> List[List]:
     where the first element is from the first list,
     the second is from the second and so one.
     """
-    return [list(i) for i in itertools.product(*args)]
+    return [list(items) for items in itertools.product(*args)]

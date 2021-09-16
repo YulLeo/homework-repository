@@ -13,7 +13,7 @@ Answer:
  
 2. Find rarest symbol for document
 
-Answer: ")"
+Answer: ')'
 
 3. Count every punctuation char
 
