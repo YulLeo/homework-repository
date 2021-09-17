@@ -1,7 +1,8 @@
-from typing import Any, List, Sequence
+import string
+from typing import List, Sequence
 
 
-def custom_range(seq: Sequence[Any], *args) -> List:
+def custom_range(seq: Sequence[string.ascii_lowercase], *args) -> List:
     """
     Accepts any iterable and then it behaves as range function.
 
@@ -13,8 +14,8 @@ def custom_range(seq: Sequence[Any], *args) -> List:
     >>> custom_range(string.ascii_lowercase, 'g')
     ['a', 'b', 'c', 'd', 'e', 'f']
 
-    >>> custom_range(('j', 'k', 'l', 'm', 'n', 'o', 'p'), 'p', 'g', -2)
-    ['p', 'n', 'l', 'j']
+    >>> custom_range(('j', 'k', 'l', 'm', 'n', 'o', 'p'), 'p', 'j', -2)
+    ['p', 'n', 'l']
 
     >>> custom_range('abcdefghijk', 'c', 'g')
     ['c', 'd', 'e', 'f']
