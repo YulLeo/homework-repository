@@ -10,6 +10,4 @@ Armstrong number in functionaly style:
 
 def is_armstrong(number: int) -> bool:
     """ Detects if a number is Armstrong number """
-    iterable_num = str(number)
-    power = len(iterable_num)
-    return number == sum(int(i)**power for i in iterable_num)
+    return number == sum(int(i)**len(str(number)) for i in str(number))

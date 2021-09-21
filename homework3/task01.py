@@ -9,17 +9,18 @@ from typing import Callable
 
 
 def decorator_cache(times: int) -> Callable:
+    """
+    Decorator that caches function return
+    values up to times number only
+    """
     def cache(func: Callable) -> Callable:
-        """Decorator that caches function return values"""
         def wrapper(*args, **kwargs):
-            saved_args = str(sorted(args))+str(sorted(kwargs.items()))
-            if saved_args in func_cache and (
-                    saved_args not in func_times
-                    or func_times[saved_args] < times):
+            saved_args = f'{sorted(args)} {sorted(kwargs.items())}'
+            if saved_args in func_cache and func_times[saved_args] < times:
                 func_times[saved_args] += 1
                 return func_cache[saved_args]
             if saved_args in func_cache and (
-                    func_times[saved_args] == times - 1):
+                    func_times[saved_args] == times-1):
                 func_times[saved_args] = 0
                 return func_cache.pop(saved_args)
             res = func_cache[saved_args] = func(*args, **kwargs)
