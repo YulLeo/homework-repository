@@ -4,7 +4,7 @@ There are multiple bugs in this code.
 Find them all and write tests for faulty cases.
 """
 
-from typing import Any, Callable
+from typing import Any, Callable, List
 
 
 class Filter:
@@ -24,7 +24,7 @@ class Filter:
     def __init__(self, *functions: Callable):
         self.functions = functions
 
-    def apply(self, data: Any):
+    def apply(self, data: Any) -> List:
         return [
             item for item in data
             if all(func(item) for func in self.functions)
@@ -33,7 +33,7 @@ class Filter:
 
 def make_filter(**keywords: str) -> Filter:
     """
-        Generate filter object for specified keywords
+        Generate filter object for specified keywords.
     """
     filter_funcs = []
     for key, value in keywords.items():

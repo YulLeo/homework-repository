@@ -15,8 +15,9 @@ PROCESS = 500
 
 
 def hurry_up_slow_calculate(slow_func: Callable, args: Any) -> int:
-    """Makes slow_calculate function faster
-    and calculate total sum of slow_calculate()
+    """
+    Makes slow_calculate function faster
+    and calculate total sum of slow_calculate().
     """
     with Pool(PROCESS) as pool:
         return sum(pool.map(slow_func, args))

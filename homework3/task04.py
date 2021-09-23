@@ -9,5 +9,7 @@ Armstrong number in functionaly style:
 
 
 def is_armstrong(number: int) -> bool:
-    """ Detects if a number is Armstrong number """
+    """
+    Detects if a number is Armstrong number.
+    """
     return number == sum(int(i)**len(str(number)) for i in str(number))
