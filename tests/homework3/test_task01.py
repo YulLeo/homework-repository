@@ -6,7 +6,7 @@ from homework3.task01 import decorator_cache
 from homework3.utils import time_meter
 
 
-@pytest.mark.parametrize('times', [1, 2, 6, 7])
+@pytest.mark.parametrize('times', [0, 1, 2, 5])
 def test_cache_positive_args(times):
     @decorator_cache(times)
     def func(a, b):
@@ -29,7 +29,7 @@ def test_no_cash():
     assert time_meter(func)(100, 200) > 4
 
 
-@pytest.mark.parametrize('times', [1, 2, 6, 7])
+@pytest.mark.parametrize('times', [0, 1, 2, 5])
 def test_cache_positive_args_kwargs(times):
     @decorator_cache(times)
     def func(a, b, **kwargs):
@@ -45,7 +45,7 @@ def test_cache_positive_args_kwargs(times):
     assert time_meter(func)(100, 200, kwarg1='spam') > 4
 
 
-@pytest.mark.parametrize('times', [1, 2, 6, 7])
+@pytest.mark.parametrize('times', [0, 1, 2, 5])
 def test_cache_positive_swap_kwargs(times):
     @decorator_cache(times)
     def func(**kwargs):
