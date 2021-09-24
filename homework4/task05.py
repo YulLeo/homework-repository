@@ -21,9 +21,10 @@ from typing import Generator
 
 
 def fizzbuzz(n: int) -> Generator[str, None, None]:
+    div_3, div_5 = lambda num: bool(num % 3), lambda num: bool(num % 5)
     fizz = itertools.cycle(['', '', 'Fizz'])
     buzz = itertools.cycle(['', '', '', '', 'Buzz'])
-    nums = [str(num)*bool(num % 3)*bool(num % 5) for num in range(1, n+1)]
+    nums = [str(num) * div_3(num) * div_5(num) for num in range(1, n + 1)]
     fizzbuzz = zip(fizz, buzz, nums)
     for combinations in fizzbuzz:
         yield ''.join(combinations)

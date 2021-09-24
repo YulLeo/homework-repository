@@ -31,7 +31,7 @@ def fizzbuzz(n: int) -> List[str]:
     """
     fizzbuzz_list = []
 
-    for num in range(1, n+1):
+    for num in range(1, n + 1):
         s = ''
         if num % 3 == 0:
             s += 'fizz'

@@ -26,20 +26,30 @@ You will learn:
 *** https://docs.python.org/3/tutorial/errors.html#handling-exceptions
 **** https://docs.python.org/3/tutorial/errors.html#raising-exceptions
 """
+import functools
+from typing import Callable
 
 
+def errors_check(func: Callable) -> Callable:
+    """
+    In case of any error, throws a ValueError.
+    """
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as exception:
+            raise ValueError('This is error') from exception
+    return wrapper
+
+
+@errors_check
 def read_magic_number(path: str) -> bool:
     """
     Gets file path as an argument. Reads the first line of the file.
     If first line is a number returns true if number in an interval [1, 3)
     and false otherwise.
     """
-    try:
-        with open(path) as file:
-            first_string = file.readline()
-            if first_string.isdigit():
-                return 3 > int(first_string) >= 1
-            else:
-                return False
-    except FileNotFoundError:
-        return 'File Not Found'
+    with open(path) as file:
+        first_string = file.readline()
+        return 3 > int(first_string) if first_string.isdigit() else False

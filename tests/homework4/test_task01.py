@@ -36,4 +36,5 @@ def test_read_magic_number_exists_empty(file_creator):
 
 
 def test_read_magic_number_not_exists():
-    assert read_magic_number('abcc') == 'File Not Found'
+    with pytest.raises(ValueError):
+        read_magic_number('abcc')
