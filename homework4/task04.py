@@ -23,23 +23,19 @@ def fizzbuzz(n: int) -> List[str]:
     Takes a number N as an input and returns list with N FizzBuzz numbers.
 
     >>> fizzbuzz(15)[14]
-    'fizzbuzz'
+    'FizzBuzz'
 
     >>> fizzbuzz(5)
-    ['1', '2', 'fizz', '4', 'buzz']
+    ['1', '2', 'Fizz', '4', 'Buzz']
 
     """
     fizzbuzz_list = []
 
     for num in range(1, n + 1):
-        s = ''
-        if num % 3 == 0:
-            s += 'fizz'
-        if num % 5 == 0:
-            s += 'buzz'
-        elif num % 5 != 0 and num % 3 != 0:
-            s += str(num)
-        fizzbuzz_list.append(s)
+        div_3, div_5 = lambda x: x % 3 == 0, lambda x: x % 5 == 0
+        fizzbuzz_list.append(
+            ('Fizz' * div_3(num) + 'Buzz' * div_5(num)) or str(num)
+        )
     return fizzbuzz_list
 
 

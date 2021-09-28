@@ -30,7 +30,7 @@ import functools
 from typing import Callable
 
 
-def errors_check(func: Callable) -> Callable:
+def raises_valueerror(func: Callable) -> Callable:
     """
     In case of any error, throws a ValueError.
     """
@@ -43,7 +43,7 @@ def errors_check(func: Callable) -> Callable:
     return wrapper
 
 
-@errors_check
+@raises_valueerror
 def read_magic_number(path: str) -> bool:
     """
     Gets file path as an argument. Reads the first line of the file.

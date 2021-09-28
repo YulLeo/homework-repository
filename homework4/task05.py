@@ -25,6 +25,5 @@ def fizzbuzz(n: int) -> Generator[str, None, None]:
     fizz = itertools.cycle(['', '', 'Fizz'])
     buzz = itertools.cycle(['', '', '', '', 'Buzz'])
     nums = [str(num) * div_3(num) * div_5(num) for num in range(1, n + 1)]
-    fizzbuzz = zip(fizz, buzz, nums)
-    for combinations in fizzbuzz:
+    for combinations in zip(fizz, buzz, nums):
         yield ''.join(combinations)
