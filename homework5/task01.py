@@ -38,20 +38,21 @@ from typing import Optional
 
 
 class Homework:
-    def __init__(self, text: str, deadline: int) -> None:
+    def __init__(self, text: str, deadline: int):
         self.text = text
         self.deadline: datetime.timedelta = datetime.timedelta(days=deadline)
-        self._created = datetime.datetime.now()
+        self.created_date_time = datetime.datetime.now()
 
     def is_active(self) -> bool:
         """
         Checks if the task has expired.
         """
-        return datetime.datetime.now() < (self._created + self.deadline)
+        return datetime.datetime.now() < (
+                self.created_date_time + self.deadline)
 
 
 class Student:
-    def __init__(self, first_name: str, last_name: str) -> None:
+    def __init__(self, first_name: str, last_name: str):
         self.last_name = last_name
         self.first_name = first_name
 
@@ -60,15 +61,15 @@ class Student:
         Takes a Homework object and returns it if task is not expired.
         Otherwise, prints 'You are late', and returns None.
         """
-        if homework.is_active():
-            return homework
-        else:
+        if homework.is_active() is False:
             print('You are late')
             return None
+        else:
+            return homework
 
 
 class Teacher:
-    def __init__(self, first_name: str, last_name: str) -> None:
+    def __init__(self, first_name: str, last_name: str):
         self.last_name = last_name
         self.first_name = first_name
 
