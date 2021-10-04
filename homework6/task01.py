@@ -8,7 +8,7 @@ reset_instances_counter - сбросить счетчик экземпляров
 Имя декоратора и методов не менять.
 """
 import functools
-from collections import deque, defaultdict
+from collections import defaultdict
 from typing import ClassVar
 
 
