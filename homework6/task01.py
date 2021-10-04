@@ -8,7 +8,7 @@ reset_instances_counter - сбросить счетчик экземпляров
 Имя декоратора и методов не менять.
 """
 import functools
-from collections import deque
+from collections import deque, defaultdict
 from typing import ClassVar
 
 
@@ -19,23 +19,22 @@ def instances_counter(cls: ClassVar) -> ClassVar:
     reset_instances_counter -  returns the last counter value,
     and resets it to zero.
     """
-    counter = deque([0])
+    counter = defaultdict(int)
     orig_init = cls.__init__
 
     @functools.wraps(cls.__init__)
     def new_init(self, *args, **kwargs):
         nonlocal counter
-        counter[0] += 1
+        counter[type(self)] += 1
         orig_init(self, *args, **kwargs)
 
-    @staticmethod
-    def get_created_instances():
-        return counter[0]
+    @classmethod
+    def get_created_instances(cls):
+        return counter[cls]
 
-    @staticmethod
-    def reset_instances_counter():
-        counter.append(0)
-        return counter.popleft()
+    @classmethod
+    def reset_instances_counter(cls):
+        return counter.pop(cls)
 
     cls.__init__ = new_init
     cls.get_created_instances = get_created_instances
