@@ -18,6 +18,7 @@ In case when value cannot be assigned to an attribute
 File size is expected to be small, you are permitted to read it
 entirely into memory.
 """
+from typing import Any, Optional
 
 
 class KeyValueStorage:
@@ -44,10 +45,10 @@ class KeyValueStorage:
                     raise ValueError('Key cannot be an integer')
                 self.data[key] = value
 
-    def __getitem__(self, item: str) -> str:
+    def __getitem__(self, item: str) -> Optional[str, int]:
         return self.data[item]
 
-    def __getattr__(self, name: str) -> str:
+    def __getattr__(self, name: str) -> Optional[str, int]:
         if hasattr(self, name):
             return getattr(self, name)
 
