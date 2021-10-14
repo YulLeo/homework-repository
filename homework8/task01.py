@@ -18,7 +18,7 @@ In case when value cannot be assigned to an attribute
 File size is expected to be small, you are permitted to read it
 entirely into memory.
 """
-from typing import Any, Optional
+from typing import Optional
 
 
 class KeyValueStorage:
