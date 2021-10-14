@@ -1,21 +1,20 @@
 import sqlite3
 from contextlib import contextmanager
+from pathlib import Path
 
 from homework8.task02 import TableData
 
 TABLE_NAME = 'presidents'
-
-DATABASE_NAME = 'example.sqlite'
+DATABASE_NAME = Path(__file__).parent / 'example.sqlite'
 
 DELETE = 'DELETE FROM presidents WHERE name = ?'
-
 INSERT = 'INSERT INTO presidents (name, age, country) VALUES (?, ?, ?)'
 
 
 @contextmanager
 def putin():
     try:
-        conn = sqlite3.connect('example.sqlite')
+        conn = sqlite3.connect(DATABASE_NAME)
         cursor = conn.cursor()
         cursor.execute(INSERT, ('Putin', 235, 'Russia'))
         conn.commit()
