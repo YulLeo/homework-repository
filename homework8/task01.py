@@ -18,7 +18,7 @@ In case when value cannot be assigned to an attribute
 File size is expected to be small, you are permitted to read it
 entirely into memory.
 """
-from typing import Optional
+from typing import Union
 
 
 class KeyValueStorage:
@@ -45,11 +45,8 @@ class KeyValueStorage:
                     raise ValueError('Key cannot be an integer')
                 self.data[key] = value
 
-    def __getitem__(self, item: str) -> Optional[str, int]:
+    def __getitem__(self, item: str) -> Union[str, int]:
         return self.data[item]
 
-    def __getattr__(self, name: str) -> Optional[str, int]:
-        if hasattr(self, name):
-            return getattr(self, name)
-
-        return self.data[name]
+    def __getattr__(self, name: str) -> Union[str, int]:
+        return self.__dict__.get(name, self.data[name])
