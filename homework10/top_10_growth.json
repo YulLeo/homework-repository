@@ -1,0 +1,82 @@
+[
+    {
+        "name": "CBRE Grou a",
+        "growth": "99.80",
+        "code": "CBRE",
+        "price": 7230.16,
+        "p_e": 18.9,
+        "lost_profit": 59.96
+    },
+    {
+        "name": "Baker Hughes",
+        "growth": "99.48",
+        "code": "BKR",
+        "price": 1905.47,
+        "p_e": 684.57,
+        "lost_profit": 14.58
+    },
+    {
+        "name": "Discover Financial Services",
+        "growth": "98.53",
+        "code": "DFS",
+        "price": 9305.96,
+        "p_e": 24.38,
+        "lost_profit": 75.26
+    },
+    {
+        "name": "Moderna",
+        "growth": "97.41",
+        "code": "MRNA",
+        "price": 23675.43,
+        "p_e": -59.95,
+        "lost_profit": 431.68
+    },
+    {
+        "name": "NetApp",
+        "growth": "97.04",
+        "code": "NTAP",
+        "price": 6444.55,
+        "p_e": 18.52,
+        "lost_profit": 52.79
+    },
+    {
+        "name": "General Electric",
+        "growth": "96.64",
+        "code": "GE",
+        "price": 7437.38,
+        "p_e": 1053.78,
+        "lost_profit": 58.6
+    },
+    {
+        "name": "United Rentals",
+        "growth": "95.70",
+        "code": "URI",
+        "price": 25102.59,
+        "p_e": 12.9,
+        "lost_profit": 201.95
+    },
+    {
+        "name": "Halliburton",
+        "growth": "95.38",
+        "code": "HAL",
+        "price": 1850.83,
+        "p_e": 28.49,
+        "lost_profit": 15.69
+    },
+    {
+        "name": "Simon Property Group",
+        "growth": "95.23",
+        "code": "SPG",
+        "price": 10142.66,
+        "p_e": 23.11,
+        "lost_profit": 85.74
+    },
+    {
+        "name": "Schlumberger",
+        "growth": "95.05",
+        "code": "SLB",
+        "price": 2452.63,
+        "p_e": 31.05,
+        "lost_profit": 23.17
+    }
+]
