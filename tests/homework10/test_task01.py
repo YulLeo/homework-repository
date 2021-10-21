@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 from bs4 import BeautifulSoup
 
@@ -6,7 +8,8 @@ from homework10.task01 import get_high_52, get_low_52, get_p_e, get_price
 
 @pytest.fixture()
 def beautiful_soup_object():
-    with open('example_company_page.html', 'r') as html_doc:
+    file = Path(__file__).parent / 'example_company_page.html'
+    with open(file, 'r') as html_doc:
         soup = BeautifulSoup(html_doc, 'html.parser')
         return soup
 
