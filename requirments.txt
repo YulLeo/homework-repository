@@ -22,7 +22,6 @@ nodeenv==1.6.0
 orderdict==2020.12.3
 packaging==21.0
 patch==1.16
-pkg_resources==0.0.0
 platformdirs==2.3.0
 pluggy==1.0.0
 pre-commit==2.14.1
