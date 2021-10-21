@@ -1,7 +1,7 @@
 import pytest
 from bs4 import BeautifulSoup
 
-from homework10.task01 import get_price, get_high_52, get_low_52, get_p_e
+from homework10.task01 import get_high_52, get_low_52, get_p_e, get_price
 
 
 @pytest.fixture()
@@ -25,6 +25,3 @@ def test_get_low_52(beautiful_soup_object):
 
 def test_get_p_e(beautiful_soup_object):
     assert get_p_e(beautiful_soup_object) == 47.10
-
-
-
