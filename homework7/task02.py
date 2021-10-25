@@ -4,14 +4,15 @@ def backspace_compare(first: str, second: str) -> bool:
     empty text editors.
     '#'means a backspace character.
     """
-    first_input = ''.join(
-        char
-        for numb, char in enumerate(first)
-        if first[numb + 1: numb + 2] != '#' and char != '#'
-    )
-    second_input = ''.join(
-        char
-        for numb, char in enumerate(second)
-        if second[numb + 1: numb + 2] != '#' and char != '#'
-    )
-    return first_input == second_input
+    return string_without_backspace(first) == string_without_backspace(second)
+
+
+def string_without_backspace(str_with_backspace: str) -> str:
+    """
+    Returns new string without backspace character
+    """
+    new_string = ''
+    for numb, char in enumerate(str):
+        if str[numb + 1: numb + 2] != '#' and char != '#':
+            new_string += char
+    return new_string

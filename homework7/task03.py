@@ -5,14 +5,11 @@ def tic_tac_toe_checker(board: List[List]) -> str:
     """
     Function that checks if the are some winners in Tic-Tac-Toe game.
     """
-    res_one_half = tic_tac_toe_checker_half(board)
-    if res_one_half is not None:
-        return res_one_half
+    if tic_tac_toe_checker_half(board) is not None:
+        return tic_tac_toe_checker_half(board)
     reversed_board = [list(i) for i in zip(*(reversed(board)))]
     res_second_half = tic_tac_toe_checker_half(reversed_board)
-    if res_second_half is not None:
-        return res_second_half
-    return 'unfinished'
+    return res_second_half if res_second_half is not None else 'unfinished'
 
 
 def tic_tac_toe_checker_half(board: List[List]) -> str:
