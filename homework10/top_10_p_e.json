@@ -1,0 +1,82 @@
+[
+    {
+        "name": "SBA Communications REIT",
+        "growth": "4.86",
+        "code": "SBAC",
+        "price": 23573.95,
+        "p_e": 1298.5,
+        "lost_profit": 136.68
+    },
+    {
+        "name": "Hilton Worldwide Holdings",
+        "growth": "55.00",
+        "code": "HLT",
+        "price": 9964.53,
+        "p_e": 1070.91,
+        "lost_profit": 61.79
+    },
+    {
+        "name": "General Electric",
+        "growth": "96.64",
+        "code": "GE",
+        "price": 7437.38,
+        "p_e": 1053.78,
+        "lost_profit": 58.6
+    },
+    {
+        "name": "Marriott",
+        "growth": "60.27",
+        "code": "MAR",
+        "price": 11001.37,
+        "p_e": 713.94,
+        "lost_profit": 72.5
+    },
+    {
+        "name": "Baker Hughes",
+        "growth": "99.48",
+        "code": "BKR",
+        "price": 1905.47,
+        "p_e": 684.57,
+        "lost_profit": 14.58
+    },
+    {
+        "name": "Booking Holdings",
+        "growth": "46.65",
+        "code": "BKNG",
+        "price": 174799.8,
+        "p_e": 460.92,
+        "lost_profit": 950.94
+    },
+    {
+        "name": "Tesla",
+        "growth": "80.39",
+        "code": "TSLA",
+        "price": 61334.99,
+        "p_e": 299.31,
+        "lost_profit": 521.28
+    },
+    {
+        "name": "TJX Cos",
+        "growth": "27.54",
+        "code": "TJX",
+        "price": 4529.14,
+        "p_e": 251.56,
+        "lost_profit": 26.1
+    },
+    {
+        "name": "UDR",
+        "growth": "66.42",
+        "code": "UDR",
+        "price": 3829.4,
+        "p_e": 184.81,
+        "lost_profit": 26.97
+    },
+    {
+        "name": "Regency Centers",
+        "growth": "72.34",
+        "code": "REG",
+        "price": 4932.94,
+        "p_e": 171.35,
+        "lost_profit": 38.03
+    }
+]
