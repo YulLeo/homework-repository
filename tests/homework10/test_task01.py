@@ -1,4 +1,5 @@
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 from bs4 import BeautifulSoup
@@ -15,7 +16,9 @@ def beautiful_soup_object():
 
 
 def test_get_price(beautiful_soup_object):
-    assert get_price(beautiful_soup_object) == 45338.38
+    with patch('homework10.task01.get_usd_to_rub') as mocked_get_usd_to_rub:
+        mocked_get_usd_to_rub.return_value = 70
+        assert get_price(beautiful_soup_object) == 44664.9
 
 
 def test_get_high_52(beautiful_soup_object):
