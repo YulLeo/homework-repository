@@ -3,7 +3,7 @@ from typing import Any
 
 def find_occurrences(tree: Any, element: Any) -> int:
     """
-    takes element and finds the number of occurrences
+    Takes element and finds the number of occurrences
     of this element in the dictionary tree.
     Tree can only contains basic structures like:
     str, list, tuple, dict, set, int, bool

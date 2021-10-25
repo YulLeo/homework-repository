@@ -12,7 +12,7 @@ def string_without_backspace(str_with_backspace: str) -> str:
     Returns new string without backspace character
     """
     new_string = ''
-    for numb, char in enumerate(str):
-        if str[numb + 1: numb + 2] != '#' and char != '#':
+    for numb, char in enumerate(str_with_backspace):
+        if str_with_backspace[numb + 1: numb + 2] != '#' and char != '#':
             new_string += char
     return new_string

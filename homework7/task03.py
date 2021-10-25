@@ -7,7 +7,7 @@ def tic_tac_toe_checker(board: List[List]) -> str:
     """
     if tic_tac_toe_checker_half(board) is not None:
         return tic_tac_toe_checker_half(board)
-    reversed_board = [list(i) for i in zip(*(reversed(board)))]
+    reversed_board = [list(raw) for raw in zip(*(reversed(board)))]
     res_second_half = tic_tac_toe_checker_half(reversed_board)
     return res_second_half if res_second_half is not None else 'unfinished'
 
