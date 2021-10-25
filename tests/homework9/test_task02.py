@@ -11,9 +11,12 @@ def test_suppressor_generator_positive():
 
 def test_suppressor_generator_irrelevant_exception():
     empty_lst = []
-    with pytest.raises(IndexError):
-        with Suppressor(ValueError):
-            empty_lst[2]
+    with pytest.raises(IndexError, match='IndexError suppressed'):
+        try:
+            with Suppressor(ValueError):
+                empty_lst[2]
+        except IndexError:
+            raise IndexError('IndexError suppressed')
 
 
 def test_suppressor_class_positive():
@@ -22,11 +25,14 @@ def test_suppressor_class_positive():
         empty_lst[2]
 
 
-def test_suppressor_class_negative():
+def test_suppressor_class_irrelevant_exception():
     empty_lst = []
-    with pytest.raises(IndexError):
-        with Suppressor(ValueError):
-            empty_lst[2]
+    with pytest.raises(IndexError, match='IndexError suppressed'):
+        try:
+            with Suppressor(ValueError):
+                empty_lst[2]
+        except IndexError:
+            raise IndexError('IndexError suppressed')
 
 
 def test_suppressor_class_few_exceptions():

@@ -41,6 +41,4 @@ def get_number_of_token(line, tokenizer):
     Counts the number of tokens in line.
     If tokenizer is None returns 1.
     """
-    if tokenizer is not None:
-        return sum(1 for token in tokenizer(line))
-    return 1
+    return sum(1 for token in tokenizer(line)) if tokenizer is not None else 1
