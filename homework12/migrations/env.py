@@ -9,7 +9,7 @@ file_path = Path(__file__).parent.parent.parent
 sys.path.append(str(file_path))
 
 from homework12.core.base import Base  # noqa: E402
-from homework12.core.db import SQLALCHEMY_DATABASE_URL   # noqa: E402
+from homework12.core.db import SQLALCHEMY_DATABASE_URL  # noqa: E402
 
 config = context.config
 
