@@ -1,2 +1,5 @@
+from homework12.models import Homework, HomeworkResult, Student, Teacher
+
 from .db import Base
-from homework12.models import Teacher
+
+__all__ = ('Base', 'Homework', 'HomeworkResult', 'Student', 'Teacher')
