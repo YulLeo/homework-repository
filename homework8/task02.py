@@ -12,7 +12,7 @@ Use supplied example.sqlite file as database fixture file.
 
 import sqlite3
 from contextlib import contextmanager
-from typing import Generator
+from typing import Generator, Tuple
 
 from homework8.sql_requests import (count_row_table, select_from_table,
                                     select_row_with_name)
@@ -51,7 +51,7 @@ class TableData:
                   select_row_with_name.format(
                       self.table_name), {'name': item}).fetchone())
 
-    def __getitem__(self, item):
+    def __getitem__(self, item) -> Tuple:
         with self._table_safe_connection() as cursor:
             row = cursor.execute(
                 select_row_with_name.format(self.table_name), {'name': item}
