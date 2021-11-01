@@ -20,6 +20,8 @@ entirely into memory.
 """
 from typing import Union
 
+from homework8.helper import clean_string
+
 
 class KeyValueStorage:
     """
@@ -27,26 +29,14 @@ class KeyValueStorage:
     its keys and values accessible as collection items and as
     attributes.
     """
-    @staticmethod
-    def clean_string(line: str) -> list:
-        line = line.strip().split('=')
-        for char in line:
-            if char.isdigit():
-                line[line.index(char)] = int(char)
-        return line
-
     def __init__(self, path: str):
         self.path = path
-        self.data = dict()
         with open(self.path) as file:
             for line in file:
-                key, value = self.clean_string(line)
+                key, value = clean_string(line)
                 if type(key) is int:
                     raise ValueError('Key cannot be an integer')
-                self.data[key] = value
+                setattr(self, key, value)
 
     def __getitem__(self, item: str) -> Union[str, int]:
-        return self.data[item]
-
-    def __getattr__(self, name: str) -> Union[str, int]:
-        return self.__dict__.get(name, self.data[name])
+        return self.__getattribute__(item)

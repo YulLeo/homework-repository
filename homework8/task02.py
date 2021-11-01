@@ -14,6 +14,9 @@ import sqlite3
 from contextlib import contextmanager
 from typing import Generator
 
+from homework8.sql_requests import (count_row_table, select_from_table,
+                                    select_row_with_name)
+
 
 class TableData:
     def __init__(self, database_name, table_name):
@@ -30,32 +33,29 @@ class TableData:
             if conn is not None:
                 conn.close()
 
-    def __getitem__(self, item):
+    def __iter__(self) -> Generator:
         with self._table_safe_connection() as cursor:
-            for items in cursor.execute(
-                    f'SELECT * FROM {self.table_name}'
-            ).fetchall():
-                if item in items:
-                    return items
+            yield from cursor.execute(
+                    select_from_table.format(self.table_name)
+            ).fetchall()
 
     def __len__(self) -> int:
         with self._table_safe_connection() as cursor:
             return cursor.execute(
-                f'SELECT COUNT(*) FROM {self.table_name}'
+                count_row_table.format(self.table_name)
             ).fetchone()[0]
 
     def __contains__(self, item) -> bool:
         with self._table_safe_connection() as cursor:
-            for items in cursor.execute(
-                    f'SELECT * FROM {self.table_name}'
-            ).fetchall():
-                if item in items:
-                    return True
+            return bool(cursor.execute(
+                  select_row_with_name.format(
+                      self.table_name), {'name': item}).fetchone())
 
-            return False
-
-    def __iter__(self) -> Generator:
+    def __getitem__(self, item):
         with self._table_safe_connection() as cursor:
-            yield from cursor.execute(
-                    f'SELECT * FROM {self.table_name}'
-            ).fetchall()
+            row = cursor.execute(
+                select_row_with_name.format(self.table_name), {'name': item}
+            ).fetchone()
+            if row is None:
+                raise ValueError('Item does not exist')
+            return row

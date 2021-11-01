@@ -2,6 +2,8 @@ import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
 
+import pytest
+
 from homework8.task02 import TableData
 
 TABLE_NAME = 'presidents'
@@ -32,7 +34,7 @@ def test_table_data_len():
 
 def test_table_data_contains():
     presidents = TableData(database_name=DATABASE_NAME, table_name=TABLE_NAME)
-    assert 'Yeltsin' in presidents
+    assert 'Trump' in presidents
 
 
 def test_table_data_not_contains():
@@ -49,6 +51,14 @@ def test_table_data_iterable():
 def test_table_data_getitem():
     presidents = TableData(database_name=DATABASE_NAME, table_name=TABLE_NAME)
     assert presidents['Trump'] == ('Trump', 1337, 'US')
+
+
+def test_table_data_getitem_tem_does_not_exist():
+    with pytest.raises(ValueError, match='Item does not exist'):
+        presidents = TableData(
+            database_name=DATABASE_NAME, table_name=TABLE_NAME
+        )
+        presidents['Putin']
 
 
 def test_table_actual_data():
